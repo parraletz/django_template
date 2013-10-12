@@ -1,0 +1,43 @@
+{% extends "base.html" %}
+
+{% block title %} Agrega un Producto {% endblock %}
+
+{% block content %}
+
+	<div class="one_full">
+		
+		<form action="" method="POST" accept-charset="utf-8">
+			
+			{% csrf_token %}
+			<!--
+			{{ formset.management_for }}
+			{% for form in formset %}
+				{% for field in form %}
+					{% if field.error %} 
+						{{ field.error }} 
+					{% endif %}
+					{{ field.label }} {{ field }}
+				{% endfor %}
+			{% endfor %}
+			-->
+			
+			{% for field in formset %}
+				<div class="fieldWrapper">
+					{% if field.errors %}
+						<div class="alert alert-error">
+							{{ field.errors }}	
+						</div>			
+						
+					{% endif %}
+					{{ field.label_tag }} {{ field }}
+				</div>
+			{% endfor%}
+			
+			
+			
+			<p><input type="submit" value="Continue &rarr;"></p>
+		</form>
+		
+	</div>
+	
+{% endblock %}

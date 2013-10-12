@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+
+{% block title %} Lista de Empleados {% endblock %}
+
+{% block content %}
+
+<div class="one_half">
+	<h5>Empleados</h5>
+	<hr>
+	<table class="table-striped">
+		<thead>
+			<th>id</th>
+			<th>nombre</th>
+			<th>apellido_paterno</th>
+			<th>apellido_materno</th>
+			<th>puesto</th>
+		</thead>
+		<tbody>
+			{% for l in lista %}
+            <tr>
+                    <td>{{ l.id }} </td>
+					<td>{{ l.nombre }}</td>
+					<td>{{ l.apellido_paterno }}</td>
+					<td>{{ l.apellido_materno }}</td>
+					<td>{{ l.puesto }}</td>
+				</tr>
+			{% endfor %}
+		</tbody>
+	</table>
+</div>
+
+
+{% endblock %}
